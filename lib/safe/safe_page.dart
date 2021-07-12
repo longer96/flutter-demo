@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:project/safeWidget/verify_page.dart';
+import 'package:project/safe/verify_page.dart';
 
 class SafePage extends StatefulWidget {
   @override
@@ -33,7 +33,7 @@ class _SafePageState extends State<SafePage> {
                   });
                 }
               },
-              child: Text('去验证'),
+              child: Text('登录'),
             )
           ],
         ),

@@ -2,7 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project/safeWidget/r_dotted_line_border.dart';
+import 'package:project/safe/r_dotted_line_border.dart';
 
 /// 验证widget
 /// return
@@ -210,7 +210,7 @@ class _DemoVerityState extends State<DemoVerity> with TickerProviderStateMixin {
                     ),
                   ],
                 ),
-                child: Image.asset('assets/safe_icon.jpg'),
+                child: Image.asset('assets/img/safe_icon.jpg'),
               ),
             ),
           ),

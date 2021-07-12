@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project/safeWidget/safe_page.dart';
+import 'package:project/bottom/bottom_bar_page.dart';
+import 'package:project/safe/safe_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(primaryColor: Colors.white, primarySwatch: Colors.orange),
+      theme:
+          ThemeData(primaryColor: Colors.white, primarySwatch: Colors.orange),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -33,19 +35,19 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           ElevatedButton(
-            onPressed: () => openPage(SafePage()),
+            onPressed: () => push(SafePage()),
             child: Text('拖动验证器'),
           ),
           ElevatedButton(
-            onPressed: () {},
-            child: Text('好看的菜单'),
+            onPressed: () => push(ButtomBarPage()),
+            child: Text('有趣的底部导航'),
           ),
         ]),
       ),
     );
   }
 
-  openPage(page) {
+  push(page) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 }
