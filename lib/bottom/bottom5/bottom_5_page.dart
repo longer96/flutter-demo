@@ -15,7 +15,7 @@ class _Bottom5PageState extends State<Bottom5Page> {
     Icons.markunread_outlined,
     Icons.notifications,
     Icons.settings,
-    Icons.menu,
+    Icons.update_sharp,
   ];
 
   int pageIndex = 0;
@@ -46,17 +46,14 @@ class _Bottom5PageState extends State<Bottom5Page> {
       left: 0,
       right: 0,
       bottom: MediaQuery.of(context).padding.bottom,
-      child: Container(
-        color: Colors.grey,
-        child: FlowMenu(
-          tabIconsList: menuItems,
-          changeIndex: (index) => onClickBottomBar(index),
-        ),
+      child: FlowMenu(
+        tabIconsList: menuItems,
+        changeIndex: (index) => _onClickBottomBar(index),
       ),
     );
   }
 
-  void onClickBottomBar(int index) {
+  void _onClickBottomBar(int index) {
     if (!mounted) return;
 
     debugPrint('longer   点击了 >>> $index');

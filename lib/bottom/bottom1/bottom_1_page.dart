@@ -41,17 +41,13 @@ class _Bottom1PageState extends State<Bottom1Page> {
   }
 
   Widget bottomBar() {
-    return Align(
-      alignment: Alignment.bottomLeft,
-      child: Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).padding.bottom,
-          left: 12.0,
-        ),
-        child: DemoFlowPopMenu(
-          tabIconsList: menuItems,
-          changeIndex: (index) => _onClickBottomBar(index),
-        ),
+    return Positioned(
+      bottom: 0,
+      left: 0,
+      right: 0,
+      child: DemoFlowPopMenu(
+        tabIconsList: menuItems,
+        changeIndex: (index) => _onClickBottomBar(index),
       ),
     );
   }

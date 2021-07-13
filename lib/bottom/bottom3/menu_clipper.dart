@@ -34,7 +34,8 @@ class MenuClipper extends CustomClipper<Path> {
           radius,
         ),
         degreeToRadians(270),
-        degreeToRadians(-60),
+        // degreeToRadians(-60),
+        degreeToRadians(-50),
         false);
 
     /// 凹陷 箭头

@@ -16,7 +16,7 @@ class DemoFlowPopMenu extends StatefulWidget {
 
 class _DemoFlowPopMenuState extends State<DemoFlowPopMenu>
     with SingleTickerProviderStateMixin {
-  late AnimationController _ctrlAnimationPopMenu;
+  late AnimationController _animationController;
   late Animation<double> animation;
 
   /// 最后选择icon
@@ -31,7 +31,7 @@ class _DemoFlowPopMenuState extends State<DemoFlowPopMenu>
   @override
   void initState() {
     super.initState();
-    _ctrlAnimationPopMenu = AnimationController(
+    _animationController = AnimationController(
       /// 动画展开、折叠时长
       duration: const Duration(milliseconds: 800),
       vsync: this,
@@ -39,17 +39,17 @@ class _DemoFlowPopMenuState extends State<DemoFlowPopMenu>
 
     animation = Tween<double>(begin: 0, end: 1.0).animate(
       CurvedAnimation(
-          parent: _ctrlAnimationPopMenu, curve: Curves.fastOutSlowIn),
+          parent: _animationController, curve: Curves.fastOutSlowIn),
     );
   }
 
   @override
   void dispose() {
-    _ctrlAnimationPopMenu.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
-  void _updateMenu(int index, IconData icon) {
+  void _onClickMenuIcon(int index, IconData icon) {
     // 过滤重复选中
     if (lastTapped == icon) return;
 
@@ -59,24 +59,21 @@ class _DemoFlowPopMenuState extends State<DemoFlowPopMenu>
 
       setState(() => lastTapped = icon);
     }
-    if (_ctrlAnimationPopMenu.status == AnimationStatus.completed) {
+    if (_animationController.status == AnimationStatus.completed) {
       /// 收拢
-      _ctrlAnimationPopMenu.reverse();
+      _animationController.reverse();
     } else {
       /// 展开
-      _ctrlAnimationPopMenu.forward();
+      _animationController.forward();
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(
-        minHeight: iconSize,
-        minWidth: 0,
-        maxWidth: double.infinity,
-        maxHeight: iconSize + 12,
-      ),
+      width: double.infinity,
+      height: 80.0 + MediaQuery.of(context).padding.bottom,
+      alignment: Alignment.centerLeft,
       child: Flow(
         delegate: FlowMenuDelegate(
           animation: animation,
@@ -98,8 +95,9 @@ class _DemoFlowPopMenuState extends State<DemoFlowPopMenu>
     if (icon == Icons.menu) {
       iconBtn = AnimatedIcon(
         icon: AnimatedIcons.menu_close,
-        progress: _ctrlAnimationPopMenu,
+        progress: _animationController,
         color: Colors.white,
+        size: 26,
       );
     } else {
       iconBtn = Icon(icon, color: Colors.white, size: 26.0);
@@ -111,14 +109,16 @@ class _DemoFlowPopMenuState extends State<DemoFlowPopMenu>
       shape: const CircleBorder(),
       constraints: BoxConstraints.tight(Size(iconSize, iconSize)),
       child: iconBtn,
-      onPressed: () => _updateMenu(index, icon),
+      onPressed: () => _onClickMenuIcon(index, icon),
     );
   }
 }
 
 class FlowMenuDelegate extends FlowDelegate {
-  FlowMenuDelegate({required this.animation, this.iconSpace = 6.0})
-      : super(repaint: animation);
+  FlowMenuDelegate({
+    required this.animation,
+    this.iconSpace = 6.0,
+  }) : super(repaint: animation);
 
   final double iconSpace;
   final Animation<double> animation;
@@ -126,16 +126,26 @@ class FlowMenuDelegate extends FlowDelegate {
   @override
   void paintChildren(FlowPaintingContext context) {
     // 起始位置
-    double x = 0.0;
+    final initx = 16.0;
     // 横向展开,y不变
-    double y = 0.0;
+    final inity = 8.0;
+
     for (int i = 0; i < context.childCount; ++i) {
-      x = (context.getChildSize(i)!.width + iconSpace) * i * animation.value;
+      final x =
+          (context.getChildSize(i)!.width + iconSpace) * i * animation.value;
       context.paintChild(
         i,
-        transform: Matrix4.translationValues(x, y, 0),
+        transform: Matrix4.translationValues(x + initx, inity, 0),
       );
     }
+  }
+
+  @override
+  Size getSize(BoxConstraints constraints) {
+    return Size(
+      constraints.maxWidth,
+      constraints.maxHeight,
+    );
   }
 
   @override
