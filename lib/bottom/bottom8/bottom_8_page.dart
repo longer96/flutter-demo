@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:project/bottom/bottom8/bottom_app_bar_8.dart';
 import 'package:project/widget/my_app_bar.dart';
-import 'bottom_app_bar_5.dart';
 
-/// 半圆菜单
-class Bottom5Page extends StatefulWidget {
+class Bottom8Page extends StatefulWidget {
   @override
-  _Bottom5PageState createState() => _Bottom5PageState();
+  _Bottom8PageState createState() => _Bottom8PageState();
 }
 
-class _Bottom5PageState extends State<Bottom5Page>
-    with TickerProviderStateMixin {
+class _Bottom8PageState extends State<Bottom8Page>
+    with SingleTickerProviderStateMixin {
   /// 菜单的icon
   final List<IconData> menuItems = <IconData>[
-    Icons.home,
     Icons.markunread_outlined,
     Icons.notifications,
     Icons.settings,
-    Icons.update_sharp,
   ];
 
   int pageIndex = 0;
@@ -24,22 +21,21 @@ class _Bottom5PageState extends State<Bottom5Page>
   /// 子菜单是否展示
   bool isShow = false;
 
-  /// 动画变量,以及初始化和销毁
   late AnimationController _animationController;
   late Animation<double> _animation;
-
-  final myCurve = Cubic(0.68, 0, 0, 1.6);
 
   @override
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: const Duration(milliseconds: 800),
+      /// 动画展开、折叠时长
+      duration: const Duration(milliseconds: 600),
       vsync: this,
     );
 
     _animation = Tween<double>(begin: 0, end: 1.0).animate(
-      CurvedAnimation(parent: _animationController, curve: myCurve),
+      CurvedAnimation(
+          parent: _animationController, curve: Curves.fastOutSlowIn),
     );
   }
 
@@ -54,9 +50,12 @@ class _Bottom5PageState extends State<Bottom5Page>
     return Stack(
       children: [
         /// 内容
-        Scaffold(
-          appBar: MyAppBar(title: '半折扇菜单'),
-          body: content(),
+        IgnorePointer(
+          ignoring: isShow,
+          child: Scaffold(
+            appBar: const MyAppBar(title: '右侧展开菜单'),
+            body: content(),
+          ),
         ),
 
         /// 遮罩
@@ -79,15 +78,13 @@ class _Bottom5PageState extends State<Bottom5Page>
   }
 
   Widget bottomBar() {
-    return Positioned(
-      left: 0,
-      right: 0,
+    return Positioned.fill(
       bottom: MediaQuery.of(context).padding.bottom,
-      child: BottomAppBar5(
+      child: BottomAppBar8(
         animation: _animation,
+        tabIconsList: menuItems,
         menuAnimation:
             Tween<double>(begin: 0, end: 1).animate(_animationController),
-        tabIconsList: menuItems,
         changeIndex: (index) => _onClickBottomBar(index: index),
         onClickMenu: () => _onClickBottomBar(),
       ),

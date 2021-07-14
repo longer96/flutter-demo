@@ -6,6 +6,7 @@ import 'package:project/bottom/bottom4/bottom_4_page.dart';
 import 'package:project/bottom/bottom5/bottom_5_page.dart';
 import 'package:project/bottom/bottom6/bottom_6_page.dart';
 import 'package:project/bottom/bottom7/bottom_7_page.dart';
+import 'package:project/bottom/bottom8/bottom_8_page.dart';
 import 'package:project/widget/my_app_bar.dart';
 
 class ButtomBarPage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _ButtomBarPageState extends State<ButtomBarPage> {
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () => push(Bottom6Page()),
-              child: Text('Flutter 自带菜单 仿咸鱼'),
+              child: Text('Flutter 自带菜单'),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
@@ -34,15 +35,13 @@ class _ButtomBarPageState extends State<ButtomBarPage> {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              // TODO
-              onPressed: () => push(Bottom5Page()),
+              onPressed: () => push(Bottom8Page()),
               child: Text('向上展开菜单'),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              // TODO
               onPressed: () => push(Bottom5Page()),
-              child: Text('半圆展开菜单'),
+              child: Text('半折扇菜单'),
             ),
             const SizedBox(height: 10),
             ElevatedButton(

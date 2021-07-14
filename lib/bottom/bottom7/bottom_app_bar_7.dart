@@ -58,7 +58,7 @@ class _BottomAppBar7State extends State<BottomAppBar7>
 
     /// 设置动画时长
     controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
+        vsync: this, duration: const Duration(milliseconds: 240));
 
     selectedPosition = widget.selectedPosition;
     previousSelectedPosition = widget.selectedPosition;
@@ -130,10 +130,10 @@ class _BottomAppBar7State extends State<BottomAppBar7>
       children.add(
         AnimatedPositioned.fromRect(
           rect: rect,
-          duration: const Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 240),
           child: GestureDetector(
             child: AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 240),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: (i == selectedPosition)
