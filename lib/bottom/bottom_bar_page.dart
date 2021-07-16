@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/bottom/bottom1/bottom_1_page.dart';
+import 'package:project/bottom/bottom10/bottom_10_page.dart';
 import 'package:project/bottom/bottom2/bottom_2_page.dart';
 import 'package:project/bottom/bottom3/bottom_3_page.dart';
 import 'package:project/bottom/bottom4/bottom_4_page.dart';
@@ -62,7 +63,12 @@ class _ButtomBarPageState extends State<ButtomBarPage> {
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () => push(Bottom7Page()),
-              child: Text('圈圈菜单'),
+              child: Text('圆圈圈菜单'),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () => push(Bottom10Page()),
+              child: Text('圆圈圈圈菜单'),
             ),
             const SizedBox(height: 10),
             ElevatedButton(

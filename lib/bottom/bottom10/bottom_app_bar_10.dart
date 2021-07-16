@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:project/bottom/bottom10/tabIcon_data.dart';
 
-class BottomAppBar7 extends StatefulWidget {
-  const BottomAppBar7({
+class BottomAppBar10 extends StatefulWidget {
+  const BottomAppBar10({
     Key? key,
     this.selectedPosition = 0,
     required this.selectedCallback,
@@ -11,13 +12,13 @@ class BottomAppBar7 extends StatefulWidget {
   /// 选中下标
   final int selectedPosition;
   final Function(int selectedPosition) selectedCallback;
-  final List<IconData> iconList;
+  final List<TabIconData> iconList;
 
   @override
-  _BottomAppBar7State createState() => _BottomAppBar7State();
+  _BottomAppBar10State createState() => _BottomAppBar10State();
 }
 
-class _BottomAppBar7State extends State<BottomAppBar7>
+class _BottomAppBar10State extends State<BottomAppBar10>
     with TickerProviderStateMixin {
   /// BottomNavigationBar高度
   double barHeight = 56.0;
@@ -25,11 +26,11 @@ class _BottomAppBar7State extends State<BottomAppBar7>
   /// 指示器高度
   double indicatorHeight = 44.0;
 
-  /// 选中图标颜色
-  Color selectedIconColor = Colors.blue;
-
-  /// 默认图标颜色
-  Color normalIconColor = Colors.grey;
+  // /// 选中图标颜色
+  // Color selectedIconColor = Colors.blue;
+  //
+  // /// 默认图标颜色
+  // Color normalIconColor = Colors.grey;
 
   /// 选中下标
   int selectedPosition = 0;
@@ -38,15 +39,18 @@ class _BottomAppBar7State extends State<BottomAppBar7>
   int previousSelectedPosition = 0;
 
   /// 选中图标高度
-  double selectedIconHeight = 38.0;
+  double selectedIconHeight = 30.0;
 
   /// 默认图标高度
-  double normalIconHeight = 32.0;
+  double normalIconHeight = 28.0;
 
   double itemWidth = 0;
 
   late AnimationController controller;
   late Animation<double> animation;
+
+  // TODO
+  // final myCurve = Cubic(0.68, 0, 0, 1.6);
 
   @override
   void initState() {
@@ -59,7 +63,9 @@ class _BottomAppBar7State extends State<BottomAppBar7>
 
     /// 设置动画时长
     controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
 
     selectedPosition = widget.selectedPosition;
     previousSelectedPosition = widget.selectedPosition;
@@ -75,15 +81,15 @@ class _BottomAppBar7State extends State<BottomAppBar7>
 
     /// 背景
     final background = Container(
-      height: barHeight,
+      height: barHeight + MediaQuery.of(context).padding.bottom,
+      clipBehavior: Clip.none,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(barHeight / 2),
         boxShadow: const [
           BoxShadow(
               color: Colors.grey,
-              offset: const Offset(0.0, 1.0),
-              blurRadius: 4.0,
+              offset: const Offset(0.0, 0.0),
+              blurRadius: 1.0,
               spreadRadius: 0.0),
         ],
       ),
@@ -92,29 +98,21 @@ class _BottomAppBar7State extends State<BottomAppBar7>
     children.add(background);
 
     if (itemWidth == 0) {
-      return Stack(
-        children: children,
-      );
+      return Stack(clipBehavior: Clip.none, children: children);
     }
 
     /// 指示器
     children.add(
       Positioned(
         left: 6.0 + animation.value * itemWidth,
-        top: (barHeight - indicatorHeight) / 2,
+        // top: (barHeight - indicatorHeight) / 2,
+        top: 0,
         child: Container(
           width: indicatorHeight,
           height: indicatorHeight,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.grey,
-                  offset: const Offset(0.0, 0.0),
-                  blurRadius: 1.0,
-                  spreadRadius: 0.0),
-            ],
+            color: Colors.yellow,
           ),
         ),
       ),
@@ -123,35 +121,58 @@ class _BottomAppBar7State extends State<BottomAppBar7>
     for (var i = 0; i < widget.iconList.length; i++) {
       /// 图标中心点计算
       final rect = Rect.fromCenter(
-        center: Offset(28.0 + (i * itemWidth), 28.0),
+        center: Offset(28.0 + (i * itemWidth), indicatorHeight / 2),
         width: (i == selectedPosition) ? selectedIconHeight : normalIconHeight,
         height: (i == selectedPosition) ? selectedIconHeight : normalIconHeight,
       );
 
+      final rectBg = Rect.fromCenter(
+        center: Offset(28.0 + (i * itemWidth), barHeight / 2),
+        width: itemWidth - 1,
+        height: barHeight,
+      );
+
+      /// 每个Icon 格子  && title
+      children.add(
+        Positioned.fromRect(
+          rect: rectBg,
+          child: InkWell(
+            onTap: () => _selectedPosition(i),
+            child: Container(
+              alignment: Alignment.bottomCenter,
+              color: Colors.blue.shade100,
+              child: Text(widget.iconList[i].title,
+                  style: TextStyle(fontSize: 12)),
+            ),
+          ),
+        ),
+      );
+
+      /// icon
       children.add(
         AnimatedPositioned.fromRect(
           rect: rect,
           duration: const Duration(milliseconds: 300),
-          child: GestureDetector(
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: (i == selectedPosition)
-                    ? selectedIconColor
-                    : normalIconColor,
+          child: IgnorePointer(
+            ignoring: true,
+            child: Container(
+              // color: Colors.red.shade100,
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return Icon(
+                    widget.iconList[i].iconData,
+                    color: Colors.grey[700],
+                    size: constraints.biggest.width,
+                  );
+                },
               ),
-              child: Icon(widget.iconList[i], color: Colors.white),
             ),
-            onTap: () => _selectedPosition(i),
           ),
         ),
       );
     }
 
-    return Stack(
-      children: children,
-    );
+    return Stack(clipBehavior: Clip.none, children: children);
   }
 
   void _selectedPosition(int position) {

@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:project/bottom/bottom10/tabIcon_data.dart';
 import 'package:project/widget/my_app_bar.dart';
-import 'bottom_app_bar_7.dart';
+import 'bottom_app_bar_10.dart';
 
 /// flutter 圈圈
-class Bottom7Page extends StatefulWidget {
+class Bottom10Page extends StatefulWidget {
   @override
-  _Bottom7PageState createState() => _Bottom7PageState();
+  _Bottom10PageState createState() => _Bottom10PageState();
 }
 
-class _Bottom7PageState extends State<Bottom7Page> {
+class _Bottom10PageState extends State<Bottom10Page> {
   int pageIndex = 0;
 
   /// 图标
-  final List<IconData> iconList = [
-    Icons.home_outlined,
-    Icons.add,
-    Icons.access_alarms,
-    Icons.settings
-  ];
+  final List<TabIconData> iconList = TabIconData.tabIconsList;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: '圆圈圈菜单'),
+      appBar: MyAppBar(title: '圆圈圈圈菜单'),
       body: Stack(
         children: [
           content(),
@@ -41,12 +37,12 @@ class _Bottom7PageState extends State<Bottom7Page> {
   }
 
   Widget bottomBar() {
-    final double width = MediaQuery.of(context).size.width;
+    // final double width = MediaQuery.of(context).size.width;
     return Positioned(
-      left: width * 0.2,
-      right: width * 0.2,
-      bottom: 10.0 + MediaQuery.of(context).padding.bottom,
-      child: BottomAppBar7(
+      left: 0,
+      right: 0,
+      bottom: 0,
+      child: BottomAppBar10(
         iconList: iconList,
         selectedPosition: 1,
         selectedCallback: (position) => onClickBottomBar(position),
