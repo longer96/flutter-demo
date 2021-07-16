@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 
 class BottomAppBar8 extends StatefulWidget {
@@ -29,7 +28,7 @@ class _BottomAppBar5State extends State<BottomAppBar8> {
   final double iconSize = 46.0;
 
   /// 菜单宽度
-  final menuWidth = 80.0;
+  final menuWidth = 70.0;
 
   /// icon 间隔
   final double iconSpace = 16.0;
@@ -61,7 +60,6 @@ class _BottomAppBar5State extends State<BottomAppBar8> {
         height: double.infinity,
         alignment: Alignment.bottomRight,
         width: menuWidth,
-        color: Colors.grey.withOpacity(0.5),
         child: Stack(
           clipBehavior: Clip.none,
           children: [

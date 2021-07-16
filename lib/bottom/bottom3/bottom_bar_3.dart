@@ -91,91 +91,78 @@ class _BottomBar3State extends State<BottomBar3> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      alignment: AlignmentDirectional.bottomCenter,
-      children: [
-        /// 底部菜单
-        Positioned(
-          left: 0,
-          right: 0,
-          bottom: 0,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: const [
-                BoxShadow(
-                    color: Colors.grey,
-                    offset: const Offset(0.0, 1.0),
-                    blurRadius: 4.0,
-                    spreadRadius: 0.0),
-              ],
-            ),
-            child: Column(
-              children: [
-                /// 5个按钮
-                SizedBox(
-                  height: 62,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 8, right: 8),
-                    child: Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: TabIcons(
-                            tabIconData: widget.tabIconsList[0],
-                            removeAllSelect: () {},
-                            onSelect: () {
-                              widget.changeIndex(0);
-                              setAnimation(0);
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          child: TabIcons(
-                            tabIconData: widget.tabIconsList[1],
-                            removeAllSelect: () {},
-                            onSelect: () {
-                              widget.changeIndex(1);
-                              setAnimation(1);
-                            },
-                          ),
-                        ),
-
-                        /// 中间的按钮
-                        Expanded(child: centerButton()),
-
-                        Expanded(
-                          child: TabIcons(
-                            tabIconData: widget.tabIconsList[2],
-                            removeAllSelect: () {},
-                            onSelect: () {
-                              widget.changeIndex(2);
-                              setAnimation(2);
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          child: TabIcons(
-                            tabIconData: widget.tabIconsList[3],
-                            removeAllSelect: () {},
-                            onSelect: () {
-                              widget.changeIndex(3);
-                              setAnimation(3);
-                            },
-                          ),
-                        ),
-                      ],
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: const [
+          BoxShadow(
+              color: Colors.grey,
+              offset: const Offset(0.0, 1.0),
+              blurRadius: 4.0,
+              spreadRadius: 0.0),
+        ],
+      ),
+      child: Column(
+        children: [
+          /// 5个按钮
+          SizedBox(
+            height: 62,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8, right: 8),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: TabIcons(
+                      tabIconData: widget.tabIconsList[0],
+                      removeAllSelect: () {},
+                      onSelect: () {
+                        widget.changeIndex(0);
+                        setAnimation(0);
+                      },
                     ),
                   ),
-                ),
+                  Expanded(
+                    child: TabIcons(
+                      tabIconData: widget.tabIconsList[1],
+                      removeAllSelect: () {},
+                      onSelect: () {
+                        widget.changeIndex(1);
+                        setAnimation(1);
+                      },
+                    ),
+                  ),
 
-                /// 最好 别用paddingBtoom  因为有的手机不是全面屏
-                SizedBox(height: MediaQuery.of(context).padding.bottom / 1.6)
-              ],
+                  /// 中间的按钮
+                  Expanded(child: centerButton()),
+
+                  Expanded(
+                    child: TabIcons(
+                      tabIconData: widget.tabIconsList[2],
+                      removeAllSelect: () {},
+                      onSelect: () {
+                        widget.changeIndex(2);
+                        setAnimation(2);
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: TabIcons(
+                      tabIconData: widget.tabIconsList[3],
+                      removeAllSelect: () {},
+                      onSelect: () {
+                        widget.changeIndex(3);
+                        setAnimation(3);
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+
+          SizedBox(height: MediaQuery.of(context).padding.bottom / 1.6)
+        ],
+      ),
     );
   }
 
@@ -292,8 +279,8 @@ class _BottomBar3State extends State<BottomBar3> with TickerProviderStateMixin {
                 borderRadius: BorderRadius.all(Radius.circular(40)),
               ),
               child: Container(
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  // color: Color(0xffff43a9),
                   gradient: LinearGradient(
                     colors: [
                       Color(0xffff43a9),
@@ -321,11 +308,6 @@ class _BottomBar3State extends State<BottomBar3> with TickerProviderStateMixin {
                       // 执行旋转动画 && 缩放动画
                       centerBtnAnimationController.forward();
                       centerBtnScaleAnimationController.forward();
-
-                      // if (!mounted) return;
-                      // setState(() {
-                      //   showMenu = !showMenu;
-                      // });
                     },
                     child: AnimatedBuilder(
                       animation: centerBtnAnimationController,
@@ -339,10 +321,8 @@ class _BottomBar3State extends State<BottomBar3> with TickerProviderStateMixin {
                                 math.pi * 3 / 4 * animation.value,
                             child: child);
                       },
-                      child: Align(
-                        child: Image.asset('assets/img/close.png',
-                            width: 18, height: 18),
-                      ),
+                      child: Image.asset('assets/img/close.png',
+                          width: 18, height: 18),
                     ),
                   ),
                 ),

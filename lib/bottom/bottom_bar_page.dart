@@ -65,7 +65,6 @@ class _ButtomBarPageState extends State<ButtomBarPage> {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              // TODO
               onPressed: () => push(Bottom7Page()),
               child: Text('抖音、小红书'),
             ),

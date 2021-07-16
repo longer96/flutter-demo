@@ -51,6 +51,7 @@ class _Bottom2PageState extends State<Bottom2Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(title: '山峦起伏菜单'),
+      backgroundColor: Colors.grey[200],
       body: Stack(
         children: [
           content(),

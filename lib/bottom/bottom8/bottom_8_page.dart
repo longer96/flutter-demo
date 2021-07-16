@@ -28,7 +28,6 @@ class _Bottom8PageState extends State<Bottom8Page>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      /// 动画展开、折叠时长
       duration: const Duration(milliseconds: 600),
       vsync: this,
     );
@@ -53,7 +52,7 @@ class _Bottom8PageState extends State<Bottom8Page>
         IgnorePointer(
           ignoring: isShow,
           child: Scaffold(
-            appBar: const MyAppBar(title: '右侧展开菜单'),
+            appBar: const MyAppBar(title: '向上展开菜单'),
             body: content(),
           ),
         ),

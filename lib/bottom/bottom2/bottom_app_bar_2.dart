@@ -150,8 +150,6 @@ class _BottomAppBar2State extends State<BottomAppBar2>
               ),
             ),
           ),
-
-          /// 最好 别用paddingBtoom  因为有的手机不是全面屏
           SizedBox(height: MediaQuery.of(context).padding.bottom / 1.6)
         ],
       ),

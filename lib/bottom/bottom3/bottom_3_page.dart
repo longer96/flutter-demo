@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project/widget/my_app_bar.dart';
-
 import 'bottom_bar_3.dart';
 import 'tabIcon_data.dart';
 
@@ -37,12 +36,17 @@ class _Bottom3PageState extends State<Bottom3Page> {
   }
 
   Widget bottomBar() {
-    return BottomBar3(
-      tabIconsList: tabIconsList,
-      changeIndex: (index) => onClickBottomBar(index),
-      addClick: () {
-        debugPrint('点击了中间的按钮');
-      },
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: 0,
+      child: BottomBar3(
+        tabIconsList: tabIconsList,
+        changeIndex: (index) => onClickBottomBar(index),
+        addClick: () {
+          debugPrint('点击了中间的按钮');
+        },
+      ),
     );
   }
 

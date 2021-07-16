@@ -109,6 +109,14 @@ class FlowMenuDelegate extends FlowDelegate {
     // 横向展开,y不变
     final inity = 6.0;
 
+    if (animation.value == 0) {
+      context.paintChild(
+        context.childCount - 1,
+        transform: Matrix4.translationValues(initx, inity, 0),
+      );
+      return;
+    }
+
     for (int i = 0; i < context.childCount; ++i) {
       final x = iconSpace * i * animation.value;
       context.paintChild(
