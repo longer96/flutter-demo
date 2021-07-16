@@ -37,7 +37,7 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
             duration: Duration(milliseconds: 100),
             child: Text(widget.tabIconData.name),
             style: TextStyle(
-                fontSize: widget.tabIconData.isSelected ? 16 : 15,
+                fontSize: widget.tabIconData.isSelected ? 16.6 : 15,
                 color:
                     widget.tabIconData.isSelected ? Colors.white : Colors.grey),
           ),

@@ -7,6 +7,7 @@ import 'package:project/bottom/bottom5/bottom_5_page.dart';
 import 'package:project/bottom/bottom6/bottom_6_page.dart';
 import 'package:project/bottom/bottom7/bottom_7_page.dart';
 import 'package:project/bottom/bottom8/bottom_8_page.dart';
+import 'package:project/bottom/bottom9/bottom_9_page.dart';
 import 'package:project/widget/my_app_bar.dart';
 
 class ButtomBarPage extends StatefulWidget {
@@ -65,7 +66,7 @@ class _ButtomBarPageState extends State<ButtomBarPage> {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () => push(Bottom7Page()),
+              onPressed: () => push(Bottom9Page()),
               child: Text('抖音、小红书'),
             ),
             const SizedBox(height: 10),

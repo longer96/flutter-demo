@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:project/widget/my_app_bar.dart';
 import 'bottom_app_bar_7.dart';
-import 'tabIcon_data.dart';
 
+/// flutter 圈圈
 class Bottom7Page extends StatefulWidget {
   @override
   _Bottom7PageState createState() => _Bottom7PageState();
 }
 
 class _Bottom7PageState extends State<Bottom7Page> {
-  final List<TabIconData> tabIconsList = TabIconData.tabIconsList;
   int pageIndex = 0;
+
+  /// 图标
+  final List<IconData> iconList = [
+    Icons.home_outlined,
+    Icons.add,
+    Icons.access_alarms,
+    Icons.settings
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: '抖音、小红书',
-        backgroundColor: Color(0xff111111),
-        elevation: 0,
-        brightness: Brightness.dark,
-        mainColor: Colors.white,
-      ),
-      backgroundColor: Color(0xff111111),
+      appBar: MyAppBar(title: '圈圈菜单'),
       body: Stack(
         children: [
           content(),
@@ -34,26 +33,23 @@ class _Bottom7PageState extends State<Bottom7Page> {
   }
 
   Widget content() {
-    return Positioned.fill(
-      child: Container(
-        alignment: Alignment.center,
-        child: Text(pageIndex.toString(),
-            style: TextStyle(color: Colors.grey[400], fontSize: 80)),
-      ),
+    return Container(
+      alignment: Alignment.center,
+      child: Text(pageIndex.toString(),
+          style: TextStyle(color: Colors.grey[400], fontSize: 80)),
     );
   }
 
   Widget bottomBar() {
+    final double width = MediaQuery.of(context).size.width;
     return Positioned(
-      left: 0,
-      right: 0,
-      bottom: 0,
-      child: BottomBar7(
-        tabIconsList: tabIconsList,
-        changeIndex: (index) => onClickBottomBar(index),
-        addClick: () {
-          debugPrint('点击了中间的按钮');
-        },
+      left: width * 0.2,
+      right: width * 0.2,
+      bottom: 10.0 + MediaQuery.of(context).padding.bottom,
+      child: BottomAppBar7(
+        iconList: iconList,
+        selectedPosition: 1,
+        selectedCallback: (position) => onClickBottomBar(position),
       ),
     );
   }
@@ -61,6 +57,7 @@ class _Bottom7PageState extends State<Bottom7Page> {
   void onClickBottomBar(int index) {
     if (!mounted) return;
 
+    debugPrint('longer   点击了 >>> $index');
     setState(() => pageIndex = index);
   }
 }
