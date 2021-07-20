@@ -39,10 +39,10 @@ class _BottomAppBar10State extends State<BottomAppBar10>
   int previousSelectedPosition = 0;
 
   /// 选中图标高度
-  double selectedIconHeight = 30.0;
+  double selectedIconHeight = 28.0;
 
   /// 默认图标高度
-  double normalIconHeight = 28.0;
+  double normalIconHeight = 25.0;
 
   double itemWidth = 0;
 
@@ -140,7 +140,7 @@ class _BottomAppBar10State extends State<BottomAppBar10>
             onTap: () => _selectedPosition(i),
             child: Container(
               alignment: Alignment.bottomCenter,
-              color: Colors.blue.shade100,
+              // color: Colors.blue.shade100,
               child: Text(widget.iconList[i].title,
                   style: TextStyle(fontSize: 12)),
             ),

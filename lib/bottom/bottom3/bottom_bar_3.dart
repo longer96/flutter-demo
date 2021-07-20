@@ -260,7 +260,6 @@ class _BottomBar3State extends State<BottomBar3> with TickerProviderStateMixin {
   Widget centerButton() {
     return Container(
       alignment: Alignment.center,
-      color: Colors.transparent,
       child: SizedBox(
         width: 42,
         height: 42,
@@ -276,7 +275,7 @@ class _BottomBar3State extends State<BottomBar3> with TickerProviderStateMixin {
                 .animate(centerBtnScaleAnimationController),
             child: ClipPath.shape(
               shape: ContinuousRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
+                borderRadius: BorderRadius.all(Radius.circular(32)),
               ),
               child: Container(
                 alignment: Alignment.center,
