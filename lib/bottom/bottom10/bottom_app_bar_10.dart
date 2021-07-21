@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project/bottom/bottom10/tabIcon_data.dart';
+import 'dart:math' as math;
+
+import 'package:project/bottom/bottom10/tab_icons.dart';
 
 class BottomAppBar10 extends StatefulWidget {
   const BottomAppBar10({
@@ -24,13 +27,11 @@ class _BottomAppBar10State extends State<BottomAppBar10>
   double barHeight = 56.0;
 
   /// 指示器高度
-  double indicatorHeight = 44.0;
+  // double indicatorHeight = 44.0;
+  double indicatorSize = 38.0;
 
-  // /// 选中图标颜色
-  // Color selectedIconColor = Colors.blue;
-  //
-  // /// 默认图标颜色
-  // Color normalIconColor = Colors.grey;
+  /// 指示器 距离顶部高度
+  double indicatorMarginTop = 2.0;
 
   /// 选中下标
   int selectedPosition = 0;
@@ -38,33 +39,32 @@ class _BottomAppBar10State extends State<BottomAppBar10>
   /// 记录上一次的选中下标
   int previousSelectedPosition = 0;
 
-  /// 选中图标高度
-  double selectedIconHeight = 28.0;
+//  / 选中图标高度
+  // double selectedIconHeight = 28.0;
 
   /// 默认图标高度
-  double normalIconHeight = 25.0;
+  double normalIconSize = 26.0;
 
   double itemWidth = 0;
 
   late AnimationController controller;
   late Animation<double> animation;
 
-  // TODO
-  // final myCurve = Cubic(0.68, 0, 0, 1.6);
+  final myCurve = Cubic(0.68, 0, 0, 1.6);
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
-      itemWidth =
-          (context.size!.width - barHeight) / (widget.iconList.length - 1);
-      setState(() {});
+      setState(() {
+        itemWidth = context.size!.width / widget.iconList.length;
+      });
     });
 
     /// 设置动画时长
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 400),
     );
 
     selectedPosition = widget.selectedPosition;
@@ -72,7 +72,7 @@ class _BottomAppBar10State extends State<BottomAppBar10>
     animation = Tween(
             begin: selectedPosition.toDouble(),
             end: selectedPosition.toDouble())
-        .animate(CurvedAnimation(parent: controller, curve: Curves.linear));
+        .animate(CurvedAnimation(parent: controller, curve: myCurve));
   }
 
   @override
@@ -103,13 +103,18 @@ class _BottomAppBar10State extends State<BottomAppBar10>
 
     /// 指示器
     children.add(
-      Positioned(
-        left: 6.0 + animation.value * itemWidth,
-        // top: (barHeight - indicatorHeight) / 2,
-        top: 0,
+      AnimatedBuilder(
+        animation: controller,
+        builder: (context, child) {
+          return Positioned(
+            left: (itemWidth - indicatorSize) / 2 + animation.value * itemWidth,
+            top: indicatorMarginTop,
+            child: child!,
+          );
+        },
         child: Container(
-          width: indicatorHeight,
-          height: indicatorHeight,
+          width: indicatorSize,
+          height: indicatorSize,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.yellow,
@@ -120,56 +125,25 @@ class _BottomAppBar10State extends State<BottomAppBar10>
 
     for (var i = 0; i < widget.iconList.length; i++) {
       /// 图标中心点计算
-      final rect = Rect.fromCenter(
-        center: Offset(28.0 + (i * itemWidth), indicatorHeight / 2),
-        width: (i == selectedPosition) ? selectedIconHeight : normalIconHeight,
-        height: (i == selectedPosition) ? selectedIconHeight : normalIconHeight,
-      );
-
       final rectBg = Rect.fromCenter(
-        center: Offset(28.0 + (i * itemWidth), barHeight / 2),
+        center: Offset(itemWidth / 2 + (i * itemWidth), barHeight / 2),
         width: itemWidth - 1,
         height: barHeight,
       );
 
-      /// 每个Icon 格子  && title
-      children.add(
-        Positioned.fromRect(
-          rect: rectBg,
-          child: InkWell(
-            onTap: () => _selectedPosition(i),
-            child: Container(
-              alignment: Alignment.bottomCenter,
-              // color: Colors.blue.shade100,
-              child: Text(widget.iconList[i].title,
-                  style: TextStyle(fontSize: 12)),
-            ),
-          ),
-        ),
-      );
+      final iconMarginTop =
+          indicatorMarginTop + (indicatorSize - normalIconSize) / 2;
 
-      /// icon
-      children.add(
-        AnimatedPositioned.fromRect(
-          rect: rect,
-          duration: const Duration(milliseconds: 300),
-          child: IgnorePointer(
-            ignoring: true,
-            child: Container(
-              // color: Colors.red.shade100,
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  return Icon(
-                    widget.iconList[i].iconData,
-                    color: Colors.grey[700],
-                    size: constraints.biggest.width,
-                  );
-                },
-              ),
-            ),
-          ),
-        ),
-      );
+      /// 每个Icon 格子  && title
+
+      children.add(TabIcons(
+        tabIconData: widget.iconList[i],
+        rect: rectBg,
+        isChecked: selectedPosition == i,
+        normalIconSize: normalIconSize,
+        iconMarginTop: iconMarginTop,
+        removeAllSelect: () => _selectedPosition(i),
+      ));
     }
 
     return Stack(clipBehavior: Clip.none, children: children);
@@ -186,11 +160,8 @@ class _BottomAppBar10State extends State<BottomAppBar10>
     animation = Tween(
             begin: previousSelectedPosition.toDouble(),
             end: selectedPosition.toDouble())
-        .animate(CurvedAnimation(parent: controller, curve: Curves.linear));
-    animation.addListener(() {
-      if (!mounted) return;
-      setState(() {});
-    });
+        .animate(controller);
+
     controller.forward(from: 0.0);
 
     widget.selectedCallback(selectedPosition);

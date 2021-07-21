@@ -99,9 +99,15 @@ class _BottomAppBar7State extends State<BottomAppBar7>
 
     /// 指示器
     children.add(
-      Positioned(
-        left: 6.0 + animation.value * itemWidth,
-        top: (barHeight - indicatorHeight) / 2,
+      AnimatedBuilder(
+        animation: controller,
+        builder: (context, child) {
+          return Positioned(
+            left: 6.0 + animation.value * itemWidth,
+            top: (barHeight - indicatorHeight) / 2,
+            child: child!,
+          );
+        },
         child: Container(
           width: indicatorHeight,
           height: indicatorHeight,
@@ -166,10 +172,6 @@ class _BottomAppBar7State extends State<BottomAppBar7>
             begin: previousSelectedPosition.toDouble(),
             end: selectedPosition.toDouble())
         .animate(CurvedAnimation(parent: controller, curve: Curves.linear));
-    animation.addListener(() {
-      if (!mounted) return;
-      setState(() {});
-    });
     controller.forward(from: 0.0);
 
     widget.selectedCallback(selectedPosition);
