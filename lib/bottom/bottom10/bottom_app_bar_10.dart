@@ -160,7 +160,7 @@ class _BottomAppBar10State extends State<BottomAppBar10>
     animation = Tween(
             begin: previousSelectedPosition.toDouble(),
             end: selectedPosition.toDouble())
-        .animate(controller);
+        .animate(CurvedAnimation(parent: controller, curve: myCurve));
 
     controller.forward(from: 0.0);
 
