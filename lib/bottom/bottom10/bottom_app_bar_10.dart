@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project/bottom/bottom10/tabIcon_data.dart';
-import 'dart:math' as math;
 
 import 'package:project/bottom/bottom10/tab_icons.dart';
 

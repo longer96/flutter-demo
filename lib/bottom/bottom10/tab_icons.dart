@@ -17,8 +17,10 @@ class TabIcons extends StatefulWidget {
   final Function removeAllSelect;
   final Rect rect;
   final double normalIconSize;
+
   // icon 距离顶部
   final double iconMarginTop;
+
   // 是否选中
   final bool isChecked;
 
@@ -73,25 +75,33 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                     width: widget.normalIconSize,
                     height: widget.normalIconSize,
                     // color: Colors.red.withOpacity(0.1),
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        return AnimatedBuilder(
-                          animation: widget.tabIconData.animationController!,
-                          builder: (context, child) {
-                            return Transform.rotate(
-                              angle: math.pi *
-                                  2 *
-                                  widget.tabIconData.animationController!.value,
-                              child: child!,
-                            );
-                          },
+                    child: RotationTransition(
+                      turns: Tween<double>(begin: -0.12, end: 0.0).animate(
+                          CurvedAnimation(
+                              parent: widget.tabIconData.animationController!,
+                              curve: const Interval(0.75, 1.0,
+                                  curve: Curves.easeInCubic))),
+                      child: RotationTransition(
+                        turns: Tween<double>(begin: 0.12, end: -0.12).animate(
+                            CurvedAnimation(
+                                parent: widget.tabIconData.animationController!,
+                                curve: const Interval(0.25, 0.75,
+                                    curve: Curves.easeInCubic))),
+                        child: RotationTransition(
+                          turns: Tween<double>(begin: -0.00, end: 0.13).animate(
+                              CurvedAnimation(
+                                  parent:
+                                      widget.tabIconData.animationController!,
+                                  curve: const Interval(0, 0.25,
+                                      curve: Curves.easeInCubic))),
                           child: Icon(
                             widget.tabIconData.iconData,
                             color: Colors.grey[700],
-                            size: constraints.biggest.width,
+                            // size: constraints.biggest.width,
+                            size: widget.normalIconSize,
                           ),
-                        );
-                      },
+                        ),
+                      ),
                     ),
                   ),
                 ),
