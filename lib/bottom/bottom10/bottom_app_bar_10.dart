@@ -126,7 +126,8 @@ class _BottomAppBar10State extends State<BottomAppBar10>
       /// 图标中心点计算
       final rectBg = Rect.fromCenter(
         center: Offset(itemWidth / 2 + (i * itemWidth), barHeight / 2),
-        width: itemWidth - 1,
+        // width: itemWidth - 2,
+        width: itemWidth,
         height: barHeight,
       );
 

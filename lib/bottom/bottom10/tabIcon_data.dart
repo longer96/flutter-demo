@@ -42,7 +42,7 @@ class TabIconData {
     ),
     TabIconData(
       iconData: Icons.widgets_outlined,
-      index: 3,
+      index: 4,
       title: 'Center',
       animationController: null,
     ),

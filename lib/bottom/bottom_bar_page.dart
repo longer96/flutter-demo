@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/bottom/bottom1/bottom_1_page.dart';
 import 'package:project/bottom/bottom10/bottom_10_page.dart';
+import 'package:project/bottom/bottom11/bottom_11_page.dart';
 import 'package:project/bottom/bottom2/bottom_2_page.dart';
 import 'package:project/bottom/bottom3/bottom_3_page.dart';
 import 'package:project/bottom/bottom4/bottom_4_page.dart';
@@ -74,6 +75,11 @@ class _ButtomBarPageState extends State<ButtomBarPage> {
             ElevatedButton(
               onPressed: () => push(Bottom9Page()),
               child: Text('抖音、小红书'),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () => push(Bottom11Page()),
+              child: Text('拉面菜单'),
             ),
             const SizedBox(height: 10),
           ],
