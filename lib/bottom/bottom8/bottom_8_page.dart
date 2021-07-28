@@ -78,7 +78,7 @@ class _Bottom8PageState extends State<Bottom8Page>
 
   Widget bottomBar() {
     return Positioned.fill(
-      bottom: MediaQuery.of(context).padding.bottom,
+      bottom: MediaQuery.of(context).padding.bottom + 22,
       child: BottomAppBar8(
         animation: _animation,
         tabIconsList: menuItems,

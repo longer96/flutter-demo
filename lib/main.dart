@@ -38,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () => push(SafePage()),
             child: Text('拖动验证器'),
           ),
+          const SizedBox(height: 10),
           ElevatedButton(
             onPressed: () => push(ButtomBarPage()),
             child: Text('有趣的底部导航'),

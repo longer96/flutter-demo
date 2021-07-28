@@ -39,7 +39,7 @@ class _TabIconsState extends State<TabIcons> {
           alignment: Alignment.center,
           child: AnimatedDefaultTextStyle(
             curve: const Cubic(0.68, 0, 0, 4.6),
-            duration: const Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 600),
             child: Text(widget.tabIconData.title),
             style: TextStyle(
               fontSize: widget.isChecked ? 17 : 16,

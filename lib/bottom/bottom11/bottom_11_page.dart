@@ -44,7 +44,7 @@ class _Bottom11PageState extends State<Bottom11Page> {
       child: GridView.builder(
         itemCount: 22,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2 + (pageIndex % 2),
+            crossAxisCount: 2 + (pageIndex % 3),
             crossAxisSpacing: 4,
             mainAxisSpacing: 4,
             childAspectRatio: 1),

@@ -71,7 +71,7 @@ class _BottomAppBar11State extends State<BottomAppBar11>
     /// 设置动画时长
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 600),
     );
 
     selectedPosition = widget.selectedPosition;
