@@ -139,6 +139,5 @@ class FlowAnimatedCircle extends FlowDelegate {
   }
 
   @override
-  bool shouldRepaint(FlowAnimatedCircle oldDelegate) =>
-      animation != oldDelegate.animation;
+  bool shouldRepaint(FlowAnimatedCircle oldDelegate) => false;
 }

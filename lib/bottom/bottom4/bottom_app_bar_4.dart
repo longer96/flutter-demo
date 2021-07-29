@@ -368,7 +368,7 @@ class TabClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(TabClipper oldClipper) => true;
+  bool shouldReclip(TabClipper oldClipper) => this.radius != oldClipper.radius;
 
   double degreeToRadians(double degree) {
     final double redian = (math.pi / 180) * degree;

@@ -82,7 +82,7 @@ class _Bottom5PageState extends State<Bottom5Page>
     return Positioned(
       left: 0,
       right: 0,
-      bottom: MediaQuery.of(context).padding.bottom + 18.0,
+      bottom: MediaQuery.of(context).padding.bottom + 8.0,
       child: BottomAppBar5(
         animation: _animation,
         menuAnimation:

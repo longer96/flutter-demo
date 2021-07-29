@@ -132,6 +132,5 @@ class FlowMenuDelegate extends FlowDelegate {
   }
 
   @override
-  bool shouldRepaint(FlowMenuDelegate oldDelegate) =>
-      animation != oldDelegate.animation;
+  bool shouldRepaint(FlowMenuDelegate oldDelegate) => false;
 }
