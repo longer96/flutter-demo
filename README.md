@@ -99,15 +99,15 @@ flutter.eeaarr.cn (上面进不去 试试这个)
 
 ### [更多效果图（待实现）](https://medium.com/flawless-app-stories/animations-in-ios-tab-bar-concepts-e1fd73ddac67)
 <br><br>
-<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter_pickers/blob/master/img/gif3.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter_pickers/blob/master/img/gif3.gif"/>
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/0.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/1.gif"/>
 <br><br>
-<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter_pickers/blob/master/img/gif3.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter_pickers/blob/master/img/gif3.gif"/>
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/2.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/3.gif"/>
 <br><br>
-<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter_pickers/blob/master/img/gif3.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter_pickers/blob/master/img/gif3.gif"/>
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/4.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/5.gif"/>
 <br><br>
-<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter_pickers/blob/master/img/gif3.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter_pickers/blob/master/img/gif3.gif"/>
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/6.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/7.gif"/>
 <br><br>
-<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter_pickers/blob/master/img/gif3.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter_pickers/blob/master/img/gif3.gif"/>
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/8.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/9.gif"/>
 
 
 
