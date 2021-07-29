@@ -1,10 +1,13 @@
 
 🔥Flutter 那些花里胡哨的界面🔥 进来绝不后悔
 ====
-
 [![GitHub stars](https://img.shields.io/github/stars/longer96/flutter_pickers.svg?style=social)](https://github.com/longer96/flutter_pickers/stargazers)   [![GitHub forks](https://img.shields.io/github/forks/longer96/flutter_pickers.svg?style=social)](https://github.com/longer96/flutter_pickers/network)
+
+
 拖动滑块验证，仿B站(bilibili)底部菜单，仿抖音、小红书底部菜单，向上展开菜单，半圆菜单，中间凹进去的菜单 等等....
 收集、实现了一些花里胡哨的底部导航。防止重复造轮，避免产品经理和程序员又又又又又又打起来!
+
+
 
 - 觉得对你有帮助的希望点个star [![GitHub stars](https://img.shields.io/github/stars/longer96/flutter_pickers.svg?style=social)](https://github.com/longer96/flutter_pickers/stargazers)
 - 有很棒的底部菜单希望推荐
@@ -97,8 +100,8 @@ flutter.eeaarr.cn (上面进不去 试试这个)
 
 
 
-### [更多效果图（待实现）](https://medium.com/flawless-app-stories/animations-in-ios-tab-bar-concepts-e1fd73ddac67)
-<br><br>
+### [更多效果图参考（想练习的童鞋可以实现）](https://medium.com/flawless-app-stories/animations-in-ios-tab-bar-concepts-e1fd73ddac67)
+<br>
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/0.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/1.gif"/>
 <br><br>
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/2.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/3.gif"/>
@@ -114,3 +117,5 @@ flutter.eeaarr.cn (上面进不去 试试这个)
 
 ## 查看写文章
  - https://mp.weixin.qq.com/s/2p1CuXuwJsJtnt8cs6PPwQ
+
+- [Flutter动画  教程B站王叔](https://space.bilibili.com/589533168/channel/detail?cid=130705)
