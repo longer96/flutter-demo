@@ -100,17 +100,17 @@ flutter.eeaarr.cn (上面进不去 试试这个)
 
 
 
-### [更多效果图参考（想练习的童鞋可以实现）](https://medium.com/flawless-app-stories/animations-in-ios-tab-bar-concepts-e1fd73ddac67)
-<br>
-<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/0.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/1.gif"/>
+### 更多效果图参考（想练习的童鞋可以实现）
 <br><br>
-<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/2.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/3.gif"/>
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/0.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/1.gif"/>
 <br><br>
-<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/4.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/5.gif"/>
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/2.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/3.gif"/>
 <br><br>
-<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/6.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/7.gif"/>
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/4.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/5.gif"/>
 <br><br>
-<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/8.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/9.gif"/>
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/6.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/7.gif"/>
+<br><br>
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/8.gif"/> <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/9.gif"/>
 
 
 
