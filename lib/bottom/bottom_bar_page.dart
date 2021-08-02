@@ -22,67 +22,69 @@ class _ButtomBarPageState extends State<ButtomBarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(title: 'Bottom Bar'),
-      body: Container(
-        width: double.infinity,
-        child: Column(
-          children: [
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom6Page()),
-              child: Text('Flutter 自带菜单'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom1Page()),
-              child: Text('右侧展开菜单'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom8Page()),
-              child: Text('向上展开菜单'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom5Page()),
-              child: Text('半折扇菜单'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom2Page()),
-              child: Text('山峦起伏菜单'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom4page()),
-              child: Text('中间凹进去的菜单'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom3Page()),
-              child: Text('底部菜单 仿B站'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom7Page()),
-              child: Text('圆圈圈菜单'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom10Page()),
-              child: Text('圆圈圈圈菜单'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom9Page()),
-              child: Text('抖音、小红书'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => push(Bottom11Page()),
-              child: Text('拉面菜单'),
-            ),
-            const SizedBox(height: 10),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom6Page()),
+                child: Text('Flutter 自带菜单'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom1Page()),
+                child: Text('右侧展开菜单'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom8Page()),
+                child: Text('向上展开菜单'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom5Page()),
+                child: Text('半折扇菜单'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom2Page()),
+                child: Text('山峦起伏菜单'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom4page()),
+                child: Text('中间凹进去的菜单'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom3Page()),
+                child: Text('底部菜单 仿B站'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom7Page()),
+                child: Text('圆圈圈菜单'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom10Page()),
+                child: Text('圆圈圈圈菜单'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom9Page()),
+                child: Text('抖音、小红书'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom11Page()),
+                child: Text('拉面菜单'),
+              ),
+              const SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );
