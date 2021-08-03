@@ -37,6 +37,7 @@ class _BottomAppBar5State extends State<BottomAppBar8> {
   Widget _buildFlowChildren(int index, IconData icon) {
     return Container(
       alignment: Alignment.center,
+      clipBehavior: Clip.none,
       child: RawMaterialButton(
         fillColor: Colors.white,
         shape: const CircleBorder(),

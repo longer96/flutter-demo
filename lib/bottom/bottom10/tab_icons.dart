@@ -87,7 +87,7 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                                 curve: const Interval(0.25, 0.75,
                                     curve: Curves.easeInCubic))),
                         child: RotationTransition(
-                          turns: Tween<double>(begin: -0.00, end: 0.13).animate(
+                          turns: Tween<double>(begin: 0.0, end: 0.12).animate(
                               CurvedAnimation(
                                   parent:
                                       widget.tabIconData.animationController!,
