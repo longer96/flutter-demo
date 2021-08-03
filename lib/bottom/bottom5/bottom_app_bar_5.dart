@@ -121,6 +121,7 @@ class FlowAnimatedCircle extends FlowDelegate {
   void paintChildren(FlowPaintingContext context) {
     // debugPrint('longer   context.size >>> ${context.size}');
 
+    // 等于0，也就是收起来的时候不绘制
     final progress = animation.value;
     if (progress == 0) return;
 
