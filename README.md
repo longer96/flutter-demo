@@ -44,7 +44,7 @@
 - 右侧展开菜单
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/02.gif"/>
 
-<br>
+
 - 向上展开菜单
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/03.gif"/>
 
@@ -54,6 +54,7 @@
 
 <br>
 - 山峦起伏菜单
+
 | <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/2.gif"/> | <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/05.gif"/> |
 | :---------: | :------: |
 | 参考图 | 效果图 |
