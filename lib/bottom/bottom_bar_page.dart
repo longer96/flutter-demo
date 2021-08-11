@@ -12,6 +12,8 @@ import 'package:project/bottom/bottom8/bottom_8_page.dart';
 import 'package:project/bottom/bottom9/bottom_9_page.dart';
 import 'package:project/widget/my_app_bar.dart';
 
+import 'bottom12/bottom_12_page.dart';
+
 class ButtomBarPage extends StatefulWidget {
   @override
   _ButtomBarPageState createState() => _ButtomBarPageState();
@@ -81,6 +83,11 @@ class _ButtomBarPageState extends State<ButtomBarPage> {
               ElevatedButton(
                 onPressed: () => push(Bottom11Page()),
                 child: Text('拉面菜单'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => push(Bottom12Page()),
+                child: Text('salomon底部菜单'),
               ),
               const SizedBox(height: 10),
             ],
