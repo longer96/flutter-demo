@@ -40,7 +40,7 @@
 - Flutter自带菜单，凹进去
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/01.gif"/>
 
-<br>
+
 - 右侧展开菜单
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/02.gif"/>
 
@@ -48,48 +48,51 @@
 - 向上展开菜单
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/03.gif"/>
 
-<br>
+
 - 半折扇菜单，弧形菜单
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/04.gif"/>
 
-<br>
+
 - 山峦起伏菜单
 
 | <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/2.gif"/> | <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/05.gif"/> |
 | :---------: | :------: |
 | 参考图 | 效果图 |
 
-<br>
+
 - 中间凹进去的菜单
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/06.gif"/>
 
-<br>
+
 - 底部菜单 仿B站
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/07.gif"/>
 
-<br>
+
 - 圆圈圈菜单
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/08.gif"/>
 
 
-<br>
+
 - 圆圈圈圈菜单
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/09.gif"/>
 
-<br>
+
 - 抖音、小红书
 <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/dy.png"/>
 
-<br>
+
 - 看上去像拉面的菜单
 
 | <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/0.gif"/> | <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/b/10.gif"/> |
 | :---------: | :------: |
 | 参考图 | 效果图 |
 
+- 流畅动画的底部导航
+[demo地址](https://github.com/mahmoud-eslami/bottom_animation)
 
-
-
+| <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/o1.gif"/> | <img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/o2.gif"/> |
+| :---------: | :------: |
+| 效果图1 | 效果图2 |
 
 <br><br>
 
