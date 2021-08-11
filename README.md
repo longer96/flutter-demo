@@ -94,6 +94,28 @@
 | :---------: | :------: |
 | 效果图1 | 效果图2 |
 
+
+- 底部导航
+[demo地址](https://github.com/lukepighetti/salomon_bottom_bar)
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/o3.gif"/>
+
+
+- 底部导航
+[demo地址](https://github.com/imaNNeoFighT/circular_bottom_navigation)
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/o4.gif"/>
+
+
+- 底部导航
+[demo地址](https://github.com/therezacuet/Motion-Tab-Bar)
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/o5.gif"/>
+
+
+- 底部导航
+[demo地址](https://github.com/retroportalstudio/spincircle_bottom_bar)
+<img width="300px" style="max-width:100%;" src="https://github.com/longer96/flutter-demo/blob/master/imgs/a/o6.gif"/>
+
+
+
 <br><br>
 
 ### 更多效果图参考（想练习的童鞋可以实现）
