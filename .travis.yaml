@@ -1,0 +1,62 @@
+language: dart
+script:
+  - dart dart_sample.dart
+
+
+os:
+  - osx
+install:
+  - git clone https://github.com/flutter/flutter.git
+  - export PATH="$PATH:`pwd`/flutter/bin"
+script:
+  - flutter doctor && flutter test
+
+
+
+
+matrix:
+  include:
+    # 声明 Android 运行环境
+    - os: linux
+      language: android
+      dist: trusty
+      licenses:
+        - 'android-sdk-preview-license-.+'
+        - 'android-sdk-license-.+'
+        - 'google-gdk-license-.+'
+      # 声明需要安装的 Android 组件
+      android:
+        components:
+          - tools
+          - platform-tools
+          - build-tools-28.0.3
+          - android-28
+          - sys-img-armeabi-v7a-google_apis-28
+          - extra-android-m2repository
+          - extra-google-m2repository
+          - extra-google-android-support
+      jdk: oraclejdk8
+      sudo: false
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - libstdc++6
+            - fonts-droid
+      # 确保 sdkmanager 是最新的
+      before_script:
+        - yes | sdkmanager --update
+      script:
+        - yes | flutter doctor --android-licenses
+        - flutter doctor && flutter -v build apk
+
+    # 声明 iOS 的运行环境
+    - os: osx
+      language: objective-c
+      osx_image: xcode10.2
+      script:
+        - flutter doctor && flutter -v build ios --no-codesign
+install:
+  - git clone https://github.com/flutter/flutter.git
+  - export PATH="$PATH:`pwd`/flutter/bin"
