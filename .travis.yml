@@ -34,6 +34,16 @@ matrix:
       script:
         - yes | flutter doctor --android-licenses
         - flutter doctor && flutter -v build apk
+      # 声明部署的策略，即上传 apk 至 github release
+      deploy:
+        provider: releases
+        api_key: ${GITHUB_TOKEN}
+        file:
+          - build/app/outputs/apk/release/app-release.apk
+        skip_cleanup: true
+        on:
+          tags: true
+
 
     # 声明 iOS 的运行环境
     - os: osx
