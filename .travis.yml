@@ -42,5 +42,5 @@ matrix:
       script:
         - flutter doctor && flutter -v build ios --no-codesign
 install:
-  - git clone --b 2.2.1 https://github.com/flutter/flutter.git
+  - git clone -b 2.2.1 https://github.com/flutter/flutter.git
   - export PATH="$PATH:`pwd`/flutter/bin"
