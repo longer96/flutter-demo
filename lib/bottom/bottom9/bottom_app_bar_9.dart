@@ -31,11 +31,7 @@ class _BottomBar9State extends State<BottomBar9> with TickerProviderStateMixin {
   late AnimationController animationController;
 
   /// 中间按钮 点击之后动画
-  late AnimationController centerBtnAnimationController;
   late AnimationController centerBtnScaleAnimationController;
-
-  /// 底部子菜单动画
-  late Animation<double> animation;
 
   @override
   void initState() {
@@ -52,22 +48,11 @@ class _BottomBar9State extends State<BottomBar9> with TickerProviderStateMixin {
     centerBtnScaleAnimationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         centerBtnScaleAnimationController.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        /// 中间动画执行完毕，执行点击事件回调
+        widget.addClick();
       }
     });
-
-    centerBtnAnimationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 100 * 2),
-    );
-    centerBtnAnimationController.addStatusListener((status) {
-      debugPrint('longer   >>> $status');
-      if (status == AnimationStatus.dismissed) {
-        if (!mounted) return;
-      }
-    });
-
-    animation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-        parent: centerBtnAnimationController, curve: Curves.fastOutSlowIn));
 
     super.initState();
   }
@@ -75,7 +60,6 @@ class _BottomBar9State extends State<BottomBar9> with TickerProviderStateMixin {
   @override
   void dispose() {
     animationController.dispose();
-    centerBtnAnimationController.dispose();
     super.dispose();
   }
 
@@ -144,30 +128,6 @@ class _BottomBar9State extends State<BottomBar9> with TickerProviderStateMixin {
     );
   }
 
-  Widget line() => Container(height: 20, width: 0.4, color: Colors.grey[400]);
-
-  Widget menuItem(String title, IconData iconData) {
-    return GestureDetector(
-      onTap: () {
-        debugPrint('点击了 >>> $title');
-        centerBtnAnimationController.reverse();
-      },
-      behavior: HitTestBehavior.opaque,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(iconData, size: 28, color: Color(0xff2b292b)),
-            const SizedBox(height: 4),
-            Text(title,
-                style: TextStyle(fontSize: 12, color: Color(0xff2b292b)))
-          ],
-        ),
-      ),
-    );
-  }
-
   /// 中间的按钮
   Widget centerButton() {
     return Container(
@@ -180,10 +140,11 @@ class _BottomBar9State extends State<BottomBar9> with TickerProviderStateMixin {
           highlightColor: Colors.transparent,
           focusColor: Colors.transparent,
           onTap: () {
-            widget.addClick();
-            // 执行旋转动画 && 缩放动画
-            centerBtnAnimationController.forward();
+            /// 缩放动画
             centerBtnScaleAnimationController.forward();
+
+            /// 振动
+            HapticFeedback.mediumImpact();
           },
           child: SizedBox(
             width: 40,
